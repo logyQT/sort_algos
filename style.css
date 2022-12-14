@@ -1,0 +1,60 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+div.circle {
+    width: 50vh;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+}
+span.circle {
+    --deg: 0;
+    --hue: 0;
+
+    display: block;
+    position: absolute;
+    left: 25vh;
+    width: 0.6vh;
+    height: 25vh;
+    transform-origin: bottom center;
+    transform: rotate(calc(var(--deg) * 1deg));
+    background-image: linear-gradient(hsl(var(--hue), 100%, 50%), hsl(var(--hue), 100%, 50%));
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+nav.menu {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1vh;
+    width: 100vh;
+}
+nav.menu button {
+    width: 30vh;
+    aspect-ratio: 5/1;
+    font-size: 4vmin;
+    background: white;
+    border-radius: 1rem;
+
+    transition: 250ms;
+}
+nav.menu button:hover {
+    background: hsl(0, 0%, 90%);
+}
+nav.menu button:active {
+    transform: translate(0, 10px);
+}
