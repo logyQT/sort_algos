@@ -79,7 +79,14 @@ const selectionSort = async () => {
         await sleep(1);
     }
 };
-const quickSort = async () => {};
+
+const quickSort = async (arr, high = 0, low = arr.length - 1) => {
+    if (low < high) {
+        const pivot = await parition(arr, high, low);
+        await quickSort(arr, low, pivot);
+        await quickSort(arr, pivot + 1, high);
+    }
+};
 
 const update = (i) => {
     document.querySelector(`span.index${i}`).style.setProperty("--hue", numbers[i]);
